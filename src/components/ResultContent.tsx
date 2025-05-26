@@ -1,6 +1,7 @@
 'use client';
 
 import { Type } from '@/data/types';
+import { log } from 'console';
 
 interface ResultContentProps {
   type: Type;
@@ -12,6 +13,7 @@ export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
   // const randomImageNumber = Math.floor(Math.random() * 3) + 1;
   // const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
+  console.log(type.id);
   const imageSrc = `/images/types/${type.id}_01.png`;
 
   return (
