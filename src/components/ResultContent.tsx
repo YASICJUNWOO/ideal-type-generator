@@ -12,7 +12,7 @@ export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
   // const randomImageNumber = Math.floor(Math.random() * 3) + 1;
   // const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
-  const imageSrc = `https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/types/${type.id.toLowerCase}_01.png?raw=true`;
+  const imageSrc = `https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/types/${type.id.toLowerCase()}_01.png?raw=true`;
   console.log(imageSrc);
 
   return (
