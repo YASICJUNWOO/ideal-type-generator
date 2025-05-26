@@ -1,3 +1,5 @@
+'use client'; // 이게 없으면 useEffect 쓰는 컴포넌트를 import할 수 없음
+
 import { AdBanner } from '@/components/AdBanner';
 import Link from 'next/link';
 

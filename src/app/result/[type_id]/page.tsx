@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       title: `당신의 미래 배우자는 ${type.name}입니다`,
       description: type.description,
-      images: [`/images/types/${typeId.toLowerCase()}_${imageNumber}.jpg`],
+      // images: [`/images/types/${typeId.toLowerCase()}_${imageNumber}.png`],
+      images: [`/images/types/a01_01.png`],
       url: `https://yourdomain.com/result/${resolvedParams.type_id}`
     }
   };
