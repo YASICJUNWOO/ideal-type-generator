@@ -1,6 +1,6 @@
 'use client';
 
-import { Type } from '@/data/types';
+import { Type, typeDetails } from '@/data/types';
 
 interface ResultContentProps {
   type: Type;
@@ -11,9 +11,13 @@ interface ResultContentProps {
 export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
   // const randomImageNumber = Math.floor(Math.random() * 3) + 1;
+  const imageSrc = `/images/types/${type.id.toLowerCase()}_01.png`;
   // const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
-  const imageSrc = `https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/types/${type.id.toLowerCase()}_01.png?raw=true`;
+  // const imageSrc = `https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/types/${type.id.toLowerCase()}_01.png?raw=true`;
   console.log(imageSrc);
+
+  const detail = typeDetails.find(d => d.id === `${type.id.toLowerCase()}_01`);
+  console.log(type.id.toLowerCase());
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -37,9 +41,34 @@ export function ResultContent({ type }: ResultContentProps) {
           />
         </div>
 
-        <p className="text-lg mb-6 text-gray-600">
-          {type.description}
-        </p>
+{/* 타입 설명 */}
+<p className="text-base text-gray-600 mb-6">
+  {type.description}
+</p>
+
+{/* 감성 인용 멘트 */}
+{detail && (
+  <div className="bg-pink-50 border-l-4 border-pink-300 pl-4 pr-3 py-3 mb-4">
+    <p className="text-sm text-pink-700 italic">"{detail.quote}"</p>
+  </div>
+)}
+
+{/* 캐릭터 성격 요약 */}
+{detail && (
+  <div className="bg-gray-50 px-4 py-4 rounded-lg shadow-inner mb-4">
+    <h2 className="font-semibold text-gray-700 mb-2">이 사람은 이런 사람이에요</h2>
+    <p className="text-sm text-gray-700 leading-relaxed">
+      {detail.summary}
+    </p>
+  </div>
+)}
+
+{/* 캐릭터가 할 법한 한 마디 */}
+{detail && (
+  <div className="bg-pink-100 px-4 py-3 rounded-lg text-center text-pink-800 font-medium text-sm">
+    {detail.say}
+  </div>
+)}
 
         <div className="flex flex-wrap gap-2">
           {type.keywords.map((keyword, index) => (
