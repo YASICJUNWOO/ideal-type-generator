@@ -11,8 +11,9 @@ interface ResultContentProps {
 export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
   const randomImageNumber = Math.floor(Math.random() * 3) + 1;
-  const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
-
+  // const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
+  const imageSrc = `/images/types/${type.id}_01.png`;
+  
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-2xl p-8 shadow-lg">
