@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props) {
       title: `당신의 미래 배우자는 ${type.name}입니다`,
       description: type.description,
       // images: [`/images/types/${typeId.toLowerCase()}_${imageNumber}.png`],
-      images: [`/images/types/${typeId.toLowerCase()}}_01.png`],
+      images: `https://ideal-type-generator.vercel.app/images/types/${typeId.toLowerCase()}_01.png`,
       url: `https://ideal-type-generator.vercel.app/result/${resolvedParams.type_id}`
     }
   };

@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "이상형 얼굴 생성기",
     description: "성격 기반으로 나의 미래 이상형 얼굴을 확인해보세요!",
-    url: "https://ideal-type-generator.vercel.app",
+    url: `https://ideal-type-generator.vercel.app`,
     siteName: "이상형 얼굴 생성기",
     images: [
       {
-        url: "https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/og/og.png?raw=true", // 1200x630
+        url: "https://ideal-type-generator.vercel.app/images/og/og.png", // 1200x630
         width: 1200,
         height: 630,
         alt: "이상형 얼굴 미리보기",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "이상형 얼굴 생성기",
     description: "당신의 성격을 기반으로 한 미래 배우자 얼굴을 보여드립니다!",
-    images: ["https://github.com/YASICJUNWOO/ideal-type-generator/blob/main/public/images/og/og.png?raw=true"],
+    images: ["https://ideal-type-generator.vercel.app/images/og/og.png"],
   },
 };
 
