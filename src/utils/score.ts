@@ -24,7 +24,7 @@ export function calculateScores(answers: Record<string, Record<string, number>>)
   
   // Get all types with the highest score
   const topTypes = Object.entries(scores)
-    .filter(([_, score]) => score === maxScore)
+    .filter(([, score]) => score === maxScore)
     .map(([type]) => type);
 
   // Randomly select one type from top scorers
