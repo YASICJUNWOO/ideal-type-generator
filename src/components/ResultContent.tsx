@@ -62,9 +62,9 @@ export function ResultContent({ type }: ResultContentProps) {
             </div>
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border-l-4 border-purple-400">
               <div className="flex items-start">
-                <span className="text-3xl text-purple-400 mr-2 leading-none">"</span>
+                <span className="text-3xl text-purple-400 mr-2 leading-none">{`"`}</span>
                 <p className="text-purple-700 italic font-medium flex-1">{detail.quote}</p>
-                <span className="text-3xl text-purple-400 ml-2 leading-none">"</span>
+                <span className="text-3xl text-purple-400 ml-2 leading-none">{`"`}</span>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export function ResultContent({ type }: ResultContentProps) {
               <h3 className="text-lg font-bold text-gray-800">이 사람이 말한다면</h3>
             </div>
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border-l-4 border-green-400 text-center">
-              <p className="text-green-800 font-medium text-lg italic">"{detail.say}"</p>
+              <p className="text-green-800 font-medium text-lg italic">{`"${detail.say}"`}</p>
             </div>
           </div>
         )}
