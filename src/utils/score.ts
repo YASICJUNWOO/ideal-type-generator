@@ -1,4 +1,4 @@
-import { Type } from '@/data/types';
+// import { Type } from '@/data/types';
 
 export interface ScoreResult {
   typeId: string;

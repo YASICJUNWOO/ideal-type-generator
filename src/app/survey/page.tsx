@@ -60,7 +60,7 @@ export default function SurveyPage() {
                 <button
                   key={index}
                   onClick={() => handleAnswer(option.score)}
-                  className="w-full p-4 text-left bg-gray-50 hover:bg-pink-50 rounded-xl transition-colors"
+                  className="w-full text-black p-4 text-left bg-gray-50 hover:bg-pink-50 rounded-xl transition-colors"
                 >
                   {option.text}
                 </button>

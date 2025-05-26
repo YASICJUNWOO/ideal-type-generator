@@ -8,7 +8,10 @@ interface ResultContentProps {
   imageNumber: string;
 }
 
-export function ResultContent({ type, typeId, imageNumber }: ResultContentProps) {
+export function ResultContent({ type }: ResultContentProps) {
+  // 임시로 모든 타입에서 a01_01.png를 사용
+  const imageSrc = '/images/types/a01_01.png';
+
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -18,9 +21,16 @@ export function ResultContent({ type, typeId, imageNumber }: ResultContentProps)
         
         <div className="aspect-square relative mb-6">
           <img
-            src={`/images/types/${typeId.toLowerCase()}_${imageNumber}.jpg`}
+            src={imageSrc}
             alt={type.name}
-            className="rounded-xl w-full h-full object-cover"
+            className="rounded-xl w-full h-full object-contain bg-white"
+            onError={e => {
+              // jpg로 fallback
+              const target = e.target as HTMLImageElement;
+              if (!target.src.endsWith('.jpg')) {
+                target.src = '/images/types/a01_01.jpg';
+              }
+            }}
           />
         </div>
 

@@ -1,4 +1,4 @@
-import { headers } from 'next/headers';
+// import { headers } from 'next/headers';
 import { AdBanner } from '@/components/AdBanner';
 import { types } from '@/data/types';
 import { ResultContent } from '@/components/ResultContent';
