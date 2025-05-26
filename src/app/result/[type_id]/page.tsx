@@ -12,7 +12,7 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const typeId = resolvedParams.type_id.split('_')[0];
-  const imageNumber = resolvedParams.type_id.split('_')[1];
+  // const imageNumber = resolvedParams.type_id.split('_')[1];
   const type = types.find(t => t.id === typeId.toUpperCase());
   
   if (!type) {
