@@ -35,7 +35,7 @@ export default function SurveyPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
       <div className="container mx-auto px-4 py-16">
-        <AdBanner position="top" />
+        {/* <AdBanner position="top" /> */}
         
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
