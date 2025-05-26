@@ -49,7 +49,7 @@ export function ResultContent({ type }: ResultContentProps) {
 {/* 감성 인용 멘트 */}
 {detail && (
   <div className="bg-pink-50 border-l-4 border-pink-300 pl-4 pr-3 py-3 mb-4">
-    <p className="text-sm text-pink-700 italic">"{detail.quote}"</p>
+    <p className="text-sm text-pink-700 italic">{`"${detail.quote}"`}</p>
   </div>
 )}
 
