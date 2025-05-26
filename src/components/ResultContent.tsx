@@ -1,6 +1,7 @@
 'use client';
 
 import { Type } from '@/data/types';
+import { log } from 'console';
 
 interface ResultContentProps {
   type: Type;
@@ -13,6 +14,7 @@ export function ResultContent({ type }: ResultContentProps) {
   // const randomImageNumber = Math.floor(Math.random() * 3) + 1;
   // const imageSrc = `/images/types/${type.id}_0${randomImageNumber}.png`;
   const imageSrc = `/images/types/${type.id}_01.png`;
+  console.log(imageSrc);
 
   return (
     <div className="max-w-2xl mx-auto">
