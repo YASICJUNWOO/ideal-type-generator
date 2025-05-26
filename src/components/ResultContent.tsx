@@ -1,7 +1,6 @@
 'use client';
 
 import { Type } from '@/data/types';
-import { log } from 'console';
 
 interface ResultContentProps {
   type: Type;
