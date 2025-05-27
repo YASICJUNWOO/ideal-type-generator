@@ -1,6 +1,7 @@
 'use client'; // 이게 없으면 useEffect 쓰는 컴포넌트를 import할 수 없음
 
 import { AdBanner } from '@/components/AdBanner';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Link from 'next/link';
 
 export default function StartPage() {
@@ -28,6 +29,7 @@ export default function StartPage() {
 
         <AdBanner position="bottom" />
       </div>
+      <SpeedInsights />
     </main>
   );
 }
