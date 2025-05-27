@@ -120,6 +120,14 @@ export function ResultContent({ type }: ResultContentProps) {
         {/* 구분선 */}
         <div className="border-t border-gray-200 my-8"></div>
 
+        {/* 다시 시도 유도 문구 */}
+        <div className="mb-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border border-yellow-200">
+          <p className="text-center text-orange-700 font-medium">
+            💡 같은 타입에도 3명의 다른 매력을 가진 사람이 있어요!<br />
+            <span className="text-sm">다시 테스트해서 또 다른 이상형을 만나보세요</span>
+          </p>
+        </div>
+
         {/* 액션 버튼 섹션 */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
