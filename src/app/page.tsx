@@ -20,7 +20,7 @@ export default function StartPage() {
           </p>
           
           <Link 
-            href="/survey"
+            href="/select-gender"
             className="inline-block bg-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-600 transition-colors"
           >
             테스트 시작하기

@@ -1,6 +1,6 @@
 // import { headers } from 'next/headers';
 import { AdBanner } from '@/components/AdBanner';
-import { types } from '@/data/types';
+import { types, woman_types } from '@/data/types';
 import { ResultContent } from '@/components/ResultContent';
 
 interface Props {
@@ -13,7 +13,10 @@ export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const typeId = resolvedParams.type_id.split('_')[0];
   // const imageNumber = resolvedParams.type_id.split('_')[1];
-  const type = types.find(t => t.id === typeId.toUpperCase());
+  
+  // 성별에 따라 적절한 타입 배열에서 찾기
+  const allTypes = [...types, ...woman_types];
+  const type = allTypes.find(t => t.id === typeId.toUpperCase());
   
   if (!type) {
     return {
@@ -39,7 +42,10 @@ export default async function ResultPage({ params }: Props) {
   const resolvedParams = await params;
   const typeId = resolvedParams.type_id.split('_')[0];
   const imageNumber = resolvedParams.type_id.split('_')[1];
-  const type = types.find(t => t.id === typeId.toUpperCase());
+  
+  // 성별에 따라 적절한 타입 배열에서 찾기
+  const allTypes = [...types, ...woman_types];
+  const type = allTypes.find(t => t.id === typeId.toUpperCase());
 
   if (!type) {
     return (

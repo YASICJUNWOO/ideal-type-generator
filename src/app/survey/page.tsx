@@ -1,28 +1,42 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { AdBanner } from '@/components/AdBanner';
-import { questions } from '@/data/questions';
+import { questions, woman_questions } from '@/data/questions';
 import { calculateScores } from '@/utils/score';
 
 export default function SurveyPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, Record<string, number>>>({});
+  const [gender, setGender] = useState<'male' | 'female'>('male');
+  const [currentQuestions, setCurrentQuestions] = useState(questions);
+
+  useEffect(() => {
+    const genderParam = searchParams.get('gender');
+    if (genderParam === 'female') {
+      setGender('female');
+      setCurrentQuestions(woman_questions);
+    } else {
+      setGender('male');
+      setCurrentQuestions(questions);
+    }
+  }, [searchParams]);
 
   const handleAnswer = (score: Record<string, number>) => {
     const newAnswers = {
       ...answers,
-      [questions[currentQuestion].id]: score
+      [currentQuestions[currentQuestion].id]: score
     };
     setAnswers(newAnswers);
 
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < currentQuestions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
       // Calculate final result
-      const result = calculateScores(newAnswers);
+      const result = calculateScores(newAnswers, gender);
       // 결과를 localStorage에 저장
       localStorage.setItem('lastResult', JSON.stringify(result));
       // 결과 페이지로 이동
@@ -30,7 +44,7 @@ export default function SurveyPage() {
     }
   };
 
-  const question = questions[currentQuestion];
+  const question = currentQuestions[currentQuestion];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
@@ -42,11 +56,11 @@ export default function SurveyPage() {
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div 
                 className="bg-pink-500 h-2.5 rounded-full transition-all duration-300"
-                style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+                style={{ width: `${((currentQuestion + 1) / currentQuestions.length) * 100}%` }}
               />
             </div>
             <p className="text-sm text-gray-600 mt-2">
-              {currentQuestion + 1} / {questions.length}
+              {currentQuestion + 1} / {currentQuestions.length}
             </p>
           </div>
 

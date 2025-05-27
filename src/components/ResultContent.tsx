@@ -1,6 +1,6 @@
 'use client';
 
-import { Type, typeDetails } from '@/data/types';
+import { Type, typeDetails, woman_typeDetails } from '@/data/types';
 
 interface ResultContentProps {
   type: Type;
@@ -11,7 +11,10 @@ interface ResultContentProps {
 export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
   const imageSrc = `/images/types/${type.id.toLowerCase()}_01.png`;
-  const detail = typeDetails.find(d => d.id === `${type.id.toLowerCase()}_01`);
+  
+  // 성별에 따라 적절한 세부사항 배열에서 찾기
+  const allTypeDetails = [...typeDetails, ...woman_typeDetails];
+  const detail = allTypeDetails.find(d => d.id === `${type.id.toLowerCase()}_01`);
 
   return (
     <div className="max-w-2xl mx-auto">
