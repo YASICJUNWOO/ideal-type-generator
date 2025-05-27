@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { AdBanner } from '@/components/AdBanner';
 import { questions, woman_questions } from '@/data/questions';
 import { calculateScores } from '@/utils/score';
 
-export default function SurveyPage() {
+function SurveyContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -86,5 +86,35 @@ export default function SurveyPage() {
         <AdBanner position="bottom" />
       </div>
     </main>
+  );
+}
+
+function SurveyPageLoading() {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-200 rounded-lg mb-6"></div>
+              <div className="space-y-4">
+                <div className="h-12 bg-gray-100 rounded-xl"></div>
+                <div className="h-12 bg-gray-100 rounded-xl"></div>
+                <div className="h-12 bg-gray-100 rounded-xl"></div>
+                <div className="h-12 bg-gray-100 rounded-xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export default function SurveyPage() {
+  return (
+    <Suspense fallback={<SurveyPageLoading />}>
+      <SurveyContent />
+    </Suspense>
   );
 } 
