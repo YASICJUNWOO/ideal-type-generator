@@ -12,7 +12,7 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const typeId = resolvedParams.type_id.split('_')[0];
-  // const imageNumber = resolvedParams.type_id.split('_')[1];
+  const imageNumber = resolvedParams.type_id.split('_')[1];
   
   // 성별에 따라 적절한 타입 배열에서 찾기
   const allTypes = [...types, ...woman_types];
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
       title: `당신의 미래 배우자는 ${type.name}입니다`,
       description: type.description,
       // images: [`/images/types/${typeId.toLowerCase()}_${imageNumber}.png`],
-      images: `https://ideal-type-generator.vercel.app/images/types/${typeId.toLowerCase()}_01.png`,
+      images: `https://ideal-type-generator.vercel.app/images/types/${typeId.toLowerCase()}_${imageNumber}.png`,
       url: `https://ideal-type-generator.vercel.app/result/${resolvedParams.type_id}`
     }
   };

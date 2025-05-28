@@ -1,6 +1,7 @@
 'use client';
 
 import { Type, typeDetails, woman_typeDetails } from '@/data/types';
+import { log } from 'console';
 
 interface ResultContentProps {
   type: Type;
@@ -10,12 +11,15 @@ interface ResultContentProps {
 
 export function ResultContent({ type }: ResultContentProps) {
   // 임시로 모든 타입에서 a01_01.png를 사용
-  const imageSrc = `/images/types/${type.id.toLowerCase()}_01.png`;
+  const randomImageNumber = Math.floor(Math.random() * 3) + 1;
+  const imageSrc = `/images/types/${type.id.toLowerCase()}_0${randomImageNumber}.png`;
   
   // 성별에 따라 적절한 세부사항 배열에서 찾기
   const allTypeDetails = [...typeDetails, ...woman_typeDetails];
-  const detail = allTypeDetails.find(d => d.id === `${type.id.toLowerCase()}_01`);
-
+  const detail = allTypeDetails.find(d => d.id === `${type.id.toLowerCase()}_0${randomImageNumber}`);
+  
+  console.log(`${type.id.toLowerCase()}_0{randomImageNumber}`);
+  
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-2xl p-8 shadow-lg">
